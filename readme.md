@@ -44,25 +44,25 @@ done. Receiving and sending mail should now work.
 Key Features
 ------------
 
-# Designed for multiple independent accounts
+### Designed for multiple independent accounts
 
 You should be able to invoke this role 3 times to set up 3 separate gmail
 accounts, switch between them (or maybe use multiple independent mutts), and
 have mail fetch running for all accounts simultaneously.
 
-# Offline mail fetching
+### Offline mail fetching
 
 We auto-configure `offlineimap` to fetch mail, so you don't need to be online to
 read mail.
 
-# External SMTP
+### External SMTP
 
 We use `msmtp` to actually send mail.
 
 Limitations
 -----------
 
-# Linux bias
+### Linux bias
 
 Automatically setting up a systemd service to run `offlineimap` obviously only
 works on linux, and I don't really know how launchd works. Interested MacOS or
@@ -88,7 +88,7 @@ neomutt -F ~/.mutt/gmail.com/dradetsky.test.acct.other/muttrc
 to choose an account directly. Hopefully I'll work out something better for this
 soon.
 
-# The OAuth tooling is still a bit of a mess
+### The OAuth tooling is still a bit of a mess
 
 There isn't exactly a good unified little tool for getting OAuth done in a CLI
 tool environment. I was forced to pick a really ugly script `mutt_oauth2.py`
@@ -99,7 +99,7 @@ just-launch-a-browser-dont-make-me-copy-paste feature I'd like.
 In defense of the author, it actually works, which is more than can be said for
 the CLI OAuth script I wrote last time I tried to do this.
 
-# OAuth tokens are not encrypted
+### OAuth tokens are not encrypted
 
 This is intentional; the tight coupling of encryption to the OAuth tool that was
 present in the original OAuth flow script was in my opinion a misfeature. Also
