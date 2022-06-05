@@ -4,7 +4,6 @@ set ssl_force_tls = yes
 set mail_check = 0
 set sort = "reverse-date-received"
 set copy = no
-set sidebar_visible = yes
 set editor = "vim"
 unset mark_old
 
@@ -27,12 +26,19 @@ mailboxes "+INBOX" \
 unset record
 unset trash
 
+# sidebar
+set sidebar_visible = yes
+set sidebar_width = 20
+color sidebar_new color221 color233
+
 # binds
 bind index,pager <down>  sidebar-next
 bind index,pager <up>    sidebar-prev
 bind index,pager <right> sidebar-open
+bind index,pager \Ci sidebar-toggle-visible
 
 # sending
 set sendmail = "msmtp -C {{ mgo_msmtp_cfg }}"
 
+source {{ mgo_user_dir }}/colors
 source {{ mgo_user_dir }}/customrc

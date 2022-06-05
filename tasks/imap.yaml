@@ -23,3 +23,9 @@
   when: ansible_facts['system'] == 'Linux'
   notify:
     - start-enable-offlineimap-service
+
+- name: 1-time imap script for debug
+  template:
+    src: 1-time-imap.sh
+    dest: "{{ mgo_user_dir }}/1-time-imap.sh"
+    mode: 0755
