@@ -1,0 +1,5 @@
+- import_tasks: pkgs.yaml
+- import_tasks: conf.yaml
+- import_tasks: imap.yaml
+- import_tasks: smtp.yaml
+- import_tasks: oauth.yaml

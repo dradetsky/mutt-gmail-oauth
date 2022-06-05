@@ -1,0 +1,8 @@
+- name: start-enable-offlineimap-service
+  systemd:
+    unit: "{{ mgo_systemd_unit_name }}"
+    state: started
+    enabled: yes
+    scope: user
+    daemon_reload: yes
+  when: ansible_facts['system'] == 'Linux' and mgo_systemd_start_enable

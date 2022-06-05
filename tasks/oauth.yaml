@@ -1,0 +1,11 @@
+- name: copy terrible oauth hack script
+  copy:
+    src: mutt_oauth2.py
+    dest: "{{ mgo_user_dir }}/mutt_oauth2.py"
+    mode: 0755
+
+- name: copy wrapper to make terrible hack usable
+  template:
+    src: oauth-wrap.sh
+    dest: "{{ mgo_user_dir }}/oauth-wrap.sh"
+    mode: 0755

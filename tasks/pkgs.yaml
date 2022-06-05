@@ -1,0 +1,9 @@
+- name: pkgs
+  package:
+    name:
+      - neomutt
+      # maybe?
+      - offlineimap
+      - msmtp
+    state: present
+  become: yes

@@ -1,0 +1,21 @@
+- name: conf dir
+  file:
+    path: "{{ mgo_user_dir }}"
+    state: directory
+
+- name: standard conf
+  template:
+    src: muttrc
+    dest: "{{ mgo_user_dir }}/muttrc"
+
+- name: custom (user supplied?) conf
+  copy:
+    dest: "{{ mgo_user_dir }}/customrc"
+    content: "{{ lookup('file', mgo_custom_rc_file) }}"
+
+- name: root conf
+  template:
+    src: rootrc
+    dest: "{{ mgo_rootrc }}"
+    force: "{{ mgo_force_set_rootrc }}"
+  when: mgo_try_set_rootrc

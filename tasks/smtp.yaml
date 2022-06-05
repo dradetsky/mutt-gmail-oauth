@@ -1,0 +1,11 @@
+- name: conf dirs
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ mgo_msmtp_base_dir }}"
+
+- name: msmtp conf
+  template:
+    src: msmtprc
+    dest: "{{ mgo_msmtp_cfg }}"

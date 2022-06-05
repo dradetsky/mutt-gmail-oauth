@@ -1,0 +1,38 @@
+# -*- conf-unix -*-
+
+set ssl_force_tls = yes
+set mail_check = 0
+set sort = "reverse-date-received"
+set copy = no
+set sidebar_visible = yes
+set editor = "vim"
+unset mark_old
+
+set header_cache = "{{ mgo_header_cache }}"
+set message_cachedir = "{{ mgo_message_cachedir }}"
+
+# mail stored here
+set folder = "{{ mgo_local_folders }}"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail].Drafts"
+set from = "{{ mgo_email }}"
+set realname = "{{ mgo_fullname }}"
+
+mailboxes "+INBOX" \
+          "+[Gmail].Sent Mail" \
+          "+[Gmail].Starred" \
+          "+[Gmail].Drafts"
+
+# gmail does this automatically
+unset record
+unset trash
+
+# binds
+bind index,pager <down>  sidebar-next
+bind index,pager <up>    sidebar-prev
+bind index,pager <right> sidebar-open
+
+# sending
+set sendmail = "msmtp -C {{ mgo_msmtp_cfg }}"
+
+source {{ mgo_user_dir }}/customrc

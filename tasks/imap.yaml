@@ -1,0 +1,25 @@
+- name: conf dirs
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ mgo_offlineimap_base }}"
+    - "{{ mgo_systemd_user_dir }}"
+
+- name: offlineimap conf
+  template:
+    src: imaprc
+    dest: "{{ mgo_offlineimap_conf }}"
+
+- name: pythonfile
+  copy:
+    src: pythonfile.py
+    dest: "{{ mgo_pythonfile }}"
+
+- name: offlineimap user service
+  template:
+    src: offlineimap-user.service
+    dest: "{{ mgo_systemd_unit_path }}"
+  when: ansible_facts['system'] == 'Linux'
+  notify:
+    - start-enable-offlineimap-service

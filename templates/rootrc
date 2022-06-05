@@ -1,0 +1,3 @@
+# -*- conf-unix -*-
+
+source {{ mgo_user_dir }}/muttrc

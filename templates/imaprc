@@ -1,0 +1,41 @@
+# -*- conf-ini -*-
+[general]
+ui = ttyui
+pythonfile = {{ mgo_pythonfile }}
+maxsyncaccounts = 1
+accounts = {{ mgo_email }}
+# TODO: param for this
+metadata = ~/.meta-offlineimap
+# dont fsync on every download
+fsync = False
+
+[Account {{ mgo_email }}]
+# resync mailboxes every $autorefresh minutes
+autorefresh = 1
+
+localrepository = {{ mgo_email }}-local
+remoterepository = {{ mgo_email }}-remote
+
+[Repository {{ mgo_email }}-local]
+type = Maildir
+localfolders = {{ mgo_local_folders }}
+
+[Repository {{ mgo_email }}-remote]
+type = Gmail
+# TODO: try more
+# maxconnections = 1
+maxconnections = 3
+remoteuser = {{ mgo_email }}
+realdelete = no
+folderfilter = lambda f: f in ['INBOX', '[Gmail]/Drafts', '[Gmail]/Sent']
+
+# sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+sslcacertfile = {{ mgo_sslcacertfile }}
+ssl_version = tls1_2
+
+oauth2_request_url = https://accounts.google.com/o/oauth2/token
+# thunderbird
+oauth2_client_id = 406964657835-aq8lmia8j95dhl1a2bvharmfk3t1hgqj.apps.googleusercontent.com
+oauth2_client_secret = kSmqreRr0qwBWJgbf5Y-PjSU
+
+oauth2_refresh_token_eval = load_gmail_token_file("{{ mgo_email }}", "{{ mgo_oauth_token_file }}")

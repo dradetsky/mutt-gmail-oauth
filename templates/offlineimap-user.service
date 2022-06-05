@@ -1,0 +1,13 @@
+# -*- conf-unix -*-
+
+[Unit]
+Description=IMAP email fetcher
+
+[Service]
+Type=simple
+ExecStart=offlineimap -u basic -c {{ mgo_offlineimap_conf }}
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target
