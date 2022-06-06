@@ -29,3 +29,11 @@
     src: 1-time-imap.sh
     dest: "{{ mgo_user_dir }}/1-time-imap.sh"
     mode: 0755
+
+- name: manual systemd hook
+  changed_when: true
+  assert:
+    that: true
+  when: mgo_systemd_start_enable_force
+  notify:
+    - start-enable-offlineimap-service

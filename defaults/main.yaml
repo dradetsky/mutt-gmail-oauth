@@ -34,6 +34,7 @@ mgo_systemd_user_dir: "{{ ansible_user_dir }}/.config/systemd/user"
 mgo_systemd_unit_name: "offlineimap-{{ mgo_user }}-{{ mgo_domain }}.service"
 mgo_systemd_unit_path: "{{ mgo_systemd_user_dir }}/{{ mgo_systemd_unit_name }}"
 mgo_systemd_start_enable: yes
+mgo_systemd_start_enable_force: no
 
 mgo_pythonfile: "{{ mgo_offlineimap_root }}/pythonfile.py"
 
