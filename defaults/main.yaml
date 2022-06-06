@@ -14,6 +14,8 @@ mgo_local_folders: "{{ mgo_user_dir }}/stored-mail"
 mgo_header_cache: "{{ mgo_user_dir }}/cache/headers"
 mgo_message_cachedir: "{{ mgo_user_dir }}/cache/bodies"
 
+mgo_alias_file: "{{ mgo_user_dir }}/aliases"
+
 mgo_colors_file: colors-neonwolf
 mgo_custom_rc_file: blank-custom-rc
 mgo_mailboxes:

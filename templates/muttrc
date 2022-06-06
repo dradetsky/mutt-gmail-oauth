@@ -2,9 +2,7 @@
 
 set ssl_force_tls = yes
 set mail_check = 0
-set sort = "reverse-date-received"
 set copy = no
-set editor = "vim"
 unset mark_old
 
 set header_cache = "{{ mgo_header_cache }}"
@@ -23,10 +21,24 @@ mailboxes {{ mgo_mailboxes_str }}
 unset record
 unset trash
 
+# sending
+set sendmail = "msmtp -C {{ mgo_msmtp_cfg }}"
+
+# =====================
+# BEGIN NON-GMAIL STUFF
+# =====================
+
+# aliases
+set alias_file = {{ mgo_alias_file }}
+
 # sidebar
 set sidebar_visible = yes
 set sidebar_width = 20
 color sidebar_new color221 color233
+
+# misc ui
+set sort = "reverse-date-received"
+set editor = "vim"
 
 # binds
 bind index,pager <down>  sidebar-next
@@ -34,8 +46,6 @@ bind index,pager <up>    sidebar-prev
 bind index,pager <right> sidebar-open
 bind index,pager \Ci sidebar-toggle-visible
 
-# sending
-set sendmail = "msmtp -C {{ mgo_msmtp_cfg }}"
-
 source {{ mgo_user_dir }}/colors
 source {{ mgo_user_dir }}/customrc
+source {{ mgo_alias_file }}

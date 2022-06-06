@@ -18,6 +18,11 @@
     dest: "{{ mgo_user_dir }}/customrc"
     content: "{{ lookup('file', mgo_custom_rc_file) }}"
 
+- name: alias file
+  file:
+    path: "{{ mgo_alias_file }}"
+    state: touch
+
 - name: root conf
   template:
     src: rootrc
