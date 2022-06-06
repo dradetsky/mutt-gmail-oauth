@@ -10,7 +10,7 @@
 
 - name: color conf
   copy:
-    src: mutt-colors-solarized-dark-256.muttrc
+    src: "{{ mgo_colors_file }}"
     dest: "{{ mgo_user_dir }}/colors"
 
 - name: custom (user supplied?) conf
