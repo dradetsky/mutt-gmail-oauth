@@ -10,6 +10,10 @@
   template:
     src: imaprc
     dest: "{{ mgo_offlineimap_conf }}"
+  vars:
+    _intermed_0: "{{ mgo_mailboxes | map('regex_replace', '^\\+', '') }}"
+    _intermed_1: "{{ _intermed_0 | map('regex_replace', '^\\[Gmail\\]\\.', '[Gmail]/') }}"
+    folderfilter_str: "{{ _intermed_1 | map('to_json') | join(', ') }}"
 
 - name: pythonfile
   copy:
