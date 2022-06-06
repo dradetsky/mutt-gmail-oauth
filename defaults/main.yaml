@@ -16,6 +16,13 @@ mgo_message_cachedir: "{{ mgo_user_dir }}/cache/bodies"
 
 mgo_colors_file: colors-neonwolf
 mgo_custom_rc_file: blank-custom-rc
+mgo_mailboxes:
+  - "+INBOX"
+  - "+[Gmail].Sent Mail"
+  - "+[Gmail].Starred"
+  - "+[Gmail].Drafts"
+
+mgo_mailboxes_str: "{{ mgo_mailboxes | map('quote') | join(' ') }}"
 
 mgo_offlineimap_root: "{{ ansible_user_dir }}/.config/offlineimap"
 mgo_offlineimap_base: "{{ mgo_offlineimap_root }}/conf.d"

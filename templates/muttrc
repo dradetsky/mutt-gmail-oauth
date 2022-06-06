@@ -17,10 +17,7 @@ set postponed = "+[Gmail].Drafts"
 set from = "{{ mgo_email }}"
 set realname = "{{ mgo_fullname }}"
 
-mailboxes "+INBOX" \
-          "+[Gmail].Sent Mail" \
-          "+[Gmail].Starred" \
-          "+[Gmail].Drafts"
+mailboxes {{ mgo_mailboxes_str }}
 
 # gmail does this automatically
 unset record
