@@ -39,6 +39,7 @@ color sidebar_new color221 color233
 # misc ui
 set sort = "reverse-date-received"
 set editor = "vim"
+set recall = no
 
 # binds
 bind index,pager <down>  sidebar-next
