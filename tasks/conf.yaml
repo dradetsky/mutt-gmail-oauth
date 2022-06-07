@@ -24,12 +24,11 @@
     dest: "{{ mgo_user_dir }}/customrc"
     content: "{{ lookup('file', mgo_custom_rc_file) }}"
 
-- name: alias file
+- name: ensure alias file
   file:
-    path: "{{ mgo_alias_file }}"
-    state: touch
-  register: alias_touch
-  changed_when: ('diff' in alias_touch) and alias_touch.diff.before.state == 'absent'
+    src: blank-aliases-file
+    dest: "{{ mgo_alias_file }}"
+    force: no
 
 - name: root conf
   template:
