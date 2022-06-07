@@ -7,8 +7,10 @@ of that "enable less-secure apps" nonsense. Instead, different nonsense!
 Usage
 -----
 
-Run it from ansible. I've been doing something like this (full working example
-coming soon-ish):
+TLDR: [Handy clone-n-run
+example](https://github.com/dradetsky/ez-mutt-gmail-oauth-setup-example)
+
+Run it from ansible. I've been doing something like this:
 
 ```
 - name: role test book
