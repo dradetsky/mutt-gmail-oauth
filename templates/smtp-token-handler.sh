@@ -41,7 +41,8 @@ refresh_access_token() {
 
     jq --arg at "${access_token}" --arg te "${expires_at}" \
         '.access_token=$at | .access_token_expiration=$te' \
-        ${token_file} > ${token_file}
+        ${token_file} > ${token_file}.tmp
+    mv ${token_file}.tmp ${token_file}
 }
 
 if [[ ${secs_now} -lt ${expires_at} ]] ; then
