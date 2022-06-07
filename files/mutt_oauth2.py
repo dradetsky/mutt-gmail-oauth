@@ -164,7 +164,8 @@ if 'tenant' in registration:
 def access_token_valid():
     '''Returns True when stored access token exists and is still valid at this time.'''
     token_exp = token['access_token_expiration']
-    return token_exp and datetime.now() < datetime.fromisoformat(token_exp)
+    # return token_exp and datetime.now() < datetime.fromisoformat(token_exp)
+    return token_exp and datetime.now().timestamp() < int(token_exp)
 
 
 def update_tokens(r):
