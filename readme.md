@@ -67,12 +67,11 @@ Limitations
 Automatically setting up a systemd service to run `offlineimap` obviously only
 works on linux, and I don't really know how launchd works. Interested MacOS or
 Windows users can consult `templates/offlineimap-user.service` and in particular
-the `ExecStart` line. You can use this to
+the `ExecStart` line. You can use this to figure out how to port the systemd
+service to launchd (I can't really be bothered at the moment).
 
-1. Just run `offlineimap` on the command line
-
-2. Figure out how to port the systemd service to launchpad (I can't really be
-   bothered at the moment)
+Alternatively, we also generate the script `1-time-imap.sh` inside the mutt user
+dir, so you can just run that to get mail.
 
 # Account switching is slightly awkward
 
@@ -113,3 +112,30 @@ allow the user to insert some optional (en/de)cryption step into the process.
 The OAuth flow script will still continue to read a plaintext token (which may
 have been decrypted by some other process) and will still emit a plaintext token
 (which may then be encrypted by some other process)
+
+Miscellaneous
+-------------
+
+### Fetch mail for an account right now
+
+Just run the `1-time-imap.sh` script. You could also bind a key/macro to invoke
+this from inside mutt.
+
+This should be safe to run even if you have another instance of `offlineimap`
+running at the moment, such as via the systemd service, since `offlineimap`
+provides its own account-level locks. See their
+[FAQ](https://www.offlineimap.org/doc/FAQ.html#can-i-run-multiple-instances).
+
+### Customize an account further
+
+There are two basic ways to customize further
+
+#### Supply your own custom rc file
+
+Pass the file name to `mgo_custom_rc_file`. This will be sourced after the
+default rc files.
+
+#### Edit the `editme` rc file
+
+This file is initially blank and will not be overwritten even if you rerun the
+role. It is also sourced after the default rc files.
