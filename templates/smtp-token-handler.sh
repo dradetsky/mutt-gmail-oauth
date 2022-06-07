@@ -20,8 +20,6 @@ access_token=$(jq -r '.access_token' $token_file)
 expires_at=$(jq -r '.access_token_expiration' $token_file)
 # XXX: should be utc?
 secs_now=$(date +%s)
-# dt_now="2022-06-06T21:58:41+00:00"
-# expires_at="2022-06-05T00:07:39.617843"
 
 refresh_access_token() {
     client_id="406964657835-aq8lmia8j95dhl1a2bvharmfk3t1hgqj.apps.googleusercontent.com"
