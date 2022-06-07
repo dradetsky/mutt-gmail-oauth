@@ -9,3 +9,9 @@
     src: oauth-wrap.sh
     dest: "{{ mgo_user_dir }}/oauth-wrap.sh"
     mode: 0755
+
+- name: copy google hack script
+  copy:
+    src: google-oauth2-script.py
+    dest: "{{ mgo_oauth_refresh_script_path }}"
+    mode: 0755

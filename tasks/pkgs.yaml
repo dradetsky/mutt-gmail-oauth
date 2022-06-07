@@ -7,3 +7,10 @@
       - msmtp
     state: present
   become: yes
+
+- name: lots of hacks depend on these
+  package:
+    name:
+      - jq
+    state: present
+  become: yes

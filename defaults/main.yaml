@@ -46,3 +46,7 @@ mgo_oauth_token_file: "{{ mgo_user_dir }}/token"
 # maybe putting this with mutt is bad, idk
 mgo_msmtp_base_dir: "{{ mgo_user_dir }}"
 mgo_msmtp_cfg: "{{ mgo_msmtp_base_dir }}/msmtprc"
+mgo_msmtp_token_script: smtp-token-handler.sh
+mgo_msmtp_script_path: "{{ mgo_user_dir }}/{{ mgo_msmtp_token_script }}"
+
+mgo_oauth_refresh_script_path: "{{ mgo_user_dir }}/google-oauth2-script.py"

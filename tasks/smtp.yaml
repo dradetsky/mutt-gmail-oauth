@@ -9,3 +9,9 @@
   template:
     src: msmtprc
     dest: "{{ mgo_msmtp_cfg }}"
+
+- name: msmtp script
+  template:
+    src: "{{ mgo_msmtp_token_script }}"
+    dest: "{{ mgo_msmtp_script_path }}"
+    mode: 0755

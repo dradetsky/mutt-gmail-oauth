@@ -170,8 +170,10 @@ def access_token_valid():
 def update_tokens(r):
     '''Takes a response dictionary, extracts tokens out of it, and updates token file.'''
     token['access_token'] = r['access_token']
-    token['access_token_expiration'] = (datetime.now() +
-                                        timedelta(seconds=int(r['expires_in']))).isoformat()
+    # token['access_token_expiration'] = (datetime.now() +
+    #                                     timedelta(seconds=int(r['expires_in']))).isoformat()
+    expiration = datetime.now().timestamp() + int(r['expires_in'])
+    token['access_token_expiration'] = int(expiration)
     if 'refresh_token' in r:
         token['refresh_token'] = r['refresh_token']
     writetokenfile()
