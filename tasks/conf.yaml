@@ -23,7 +23,7 @@
     path: "{{ mgo_alias_file }}"
     state: touch
   register: alias_touch
-  changed_when: alias_touch.diff.before.state == 'absent'
+  changed_when: ('diff' in alias_touch) and alias_touch.diff.before.state == 'absent'
 
 - name: root conf
   template:
