@@ -20,7 +20,6 @@ mgo_colors_file: colors-neonwolf
 mgo_custom_rc_file: blank-custom-rc
 mgo_mailboxes:
   - "+INBOX"
-  - "+[Gmail].Sent Mail"
   - "+[Gmail].Starred"
   - "+[Gmail].Drafts"
 
