@@ -36,7 +36,7 @@ ssl_version = tls1_2
 
 oauth2_request_url = https://accounts.google.com/o/oauth2/token
 # thunderbird
-oauth2_client_id = 406964657835-aq8lmia8j95dhl1a2bvharmfk3t1hgqj.apps.googleusercontent.com
-oauth2_client_secret = kSmqreRr0qwBWJgbf5Y-PjSU
+oauth2_client_id = {{ mgo_oauth_client_id }}
+oauth2_client_secret = {{ mgo_oauth_client_secret }}
 
 oauth2_refresh_token_eval = load_gmail_token_file("{{ mgo_email }}", "{{ mgo_oauth_token_file }}")

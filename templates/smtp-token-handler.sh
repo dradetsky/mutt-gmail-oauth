@@ -22,8 +22,8 @@ expires_at=$(jq -r '.access_token_expiration' $token_file)
 secs_now=$(date +%s)
 
 refresh_access_token() {
-    client_id="406964657835-aq8lmia8j95dhl1a2bvharmfk3t1hgqj.apps.googleusercontent.com"
-    client_secret="kSmqreRr0qwBWJgbf5Y-PjSU"
+    client_id="{{ mgo_oauth_client_id }}"
+    client_secret="{{ mgo_oauth_client_secret }}"
     refresh_token=$(jq -r '.refresh_token' $token_file)
 
 	{ IFS= read -r tokenline && IFS= read -r expireline; } < \

@@ -8,8 +8,8 @@
 this_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # from thunderbird
-export MUTT_OAUTH2_GOOGLE_CLIENT_ID=406964657835-aq8lmia8j95dhl1a2bvharmfk3t1hgqj.apps.googleusercontent.com
-export MUTT_OAUTH2_GOOGLE_CLIENT_SECRET=kSmqreRr0qwBWJgbf5Y-PjSU
+export MUTT_OAUTH2_GOOGLE_CLIENT_ID={{ mgo_oauth_client_id }}
+export MUTT_OAUTH2_GOOGLE_CLIENT_SECRET={{ mgo_oauth_client_secret }}
 
 email={{ mgo_email }}
 token_file={{ mgo_oauth_token_file }}

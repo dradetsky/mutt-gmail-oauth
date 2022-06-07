@@ -50,3 +50,23 @@ mgo_msmtp_token_script: smtp-token-handler.sh
 mgo_msmtp_script_path: "{{ mgo_user_dir }}/{{ mgo_msmtp_token_script }}"
 
 mgo_oauth_refresh_script_path: "{{ mgo_user_dir }}/google-oauth2-script.py"
+
+# Shamelessly stolen from Mozilla Thunderbird
+#
+# In theory you could create your own id/secret pair via the Google cloud
+# developer console, and then (IIRC) manually whitelist a set of accounts that
+# are allowed to use your "app" while it's still "in development", or get Google
+# to approve your "app" which in fact consists of two separate programs,
+# offlineimap & msmtp (unless we change this later). Maybe they'll want you to
+# have two separate id/secret pairs (and thus two sets of tokens) for this
+# reason.
+#
+# But I mean, why would you bother with all this? Using the id/secret pair for
+# Thunderbird (a mail-reading app) to read your mail works fine.
+#
+# For those unfamiliar with OAuth, the client secret does not actually have to
+# be "secret" in the sense of not being committed to your publicly-visible repo.
+# The way I got the id/secret for Thunderbird is that they're committed to
+# Mozilla's publicly-visible repo.
+mgo_oauth_client_id: 406964657835-aq8lmia8j95dhl1a2bvharmfk3t1hgqj.apps.googleusercontent.com
+mgo_oauth_client_secret: kSmqreRr0qwBWJgbf5Y-PjSU
