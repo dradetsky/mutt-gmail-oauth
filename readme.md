@@ -75,7 +75,7 @@ service to launchd (I can't really be bothered at the moment).
 Alternatively, we also generate the script `1-time-imap.sh` inside the mutt user
 dir, so you can just run that to get mail.
 
-# Account switching is slightly awkward
+### Account switching is slightly awkward
 
 Basically, the root muttrc (probably `~/.mutt/muttrc`) just sources an account
 muttrc (at e.g. `~/.mutt/gmail.com/dradetsky.test.acct.other/muttrc`) at
