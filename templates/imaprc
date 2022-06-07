@@ -35,7 +35,6 @@ sslcacertfile = {{ mgo_sslcacertfile }}
 ssl_version = tls1_2
 
 oauth2_request_url = https://accounts.google.com/o/oauth2/token
-# thunderbird
 oauth2_client_id = {{ mgo_oauth_client_id }}
 oauth2_client_secret = {{ mgo_oauth_client_secret }}
 

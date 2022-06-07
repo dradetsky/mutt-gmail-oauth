@@ -7,7 +7,6 @@
 # hopefully i can replace this soon
 this_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-# from thunderbird
 export MUTT_OAUTH2_GOOGLE_CLIENT_ID={{ mgo_oauth_client_id }}
 export MUTT_OAUTH2_GOOGLE_CLIENT_SECRET={{ mgo_oauth_client_secret }}
 
