@@ -25,7 +25,7 @@
     content: "{{ lookup('file', mgo_custom_rc_file) }}"
 
 - name: ensure alias file
-  file:
+  copy:
     src: blank-aliases-file
     dest: "{{ mgo_alias_file }}"
     force: no
