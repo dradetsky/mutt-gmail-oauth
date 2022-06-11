@@ -51,6 +51,7 @@ bind index,pager \Ci sidebar-toggle-visible
 macro index \eo "<shell-escape>systemctl --user status {{ mgo_systemd_unit_name }}<enter>" \
       "show imap check status"
 
+source {{ mgo_shared_editme_rc }}
 source {{ mgo_user_dir }}/colors
 source {{ mgo_user_dir }}/customrc
 source {{ mgo_user_dir }}/editme

@@ -19,6 +19,12 @@
     dest: "{{ mgo_user_dir }}/editme"
     force: no
 
+- name: shared editme conf
+  copy:
+    src: blank-editme-rc
+    dest: "{{ mgo_shared_editme_rc }}"
+    force: no
+
 - name: custom (user supplied?) conf
   copy:
     dest: "{{ mgo_user_dir }}/customrc"

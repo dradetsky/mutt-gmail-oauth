@@ -7,6 +7,7 @@ mgo_base: "{{ ansible_user_dir }}/.mutt"
 mgo_user_dir: "{{ mgo_base }}/{{ mgo_domain }}/{{ mgo_user }}"
 
 mgo_rootrc: "{{ mgo_base }}/muttrc"
+mgo_shared_editme_rc: "{{ mgo_base }}/editme"
 mgo_try_set_rootrc: yes
 mgo_force_set_rootrc: no
 
