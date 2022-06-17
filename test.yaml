@@ -1,0 +1,4 @@
+- name: role test book
+  hosts: localhost
+  roles:
+    - role: "{{ playbook_dir }}"
