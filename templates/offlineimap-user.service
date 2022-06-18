@@ -1,7 +1,8 @@
-# -*- conf-unix -*-
-
 [Unit]
 Description=IMAP email fetcher
+# NOTE: intention is disable this target turns off all mail checking
+Requires=any-offlineimap.target
+PartOf=any-offlineimap.target
 
 [Service]
 Type=simple
@@ -11,3 +12,5 @@ RestartSec=60
 
 [Install]
 WantedBy=default.target
+# NOTE: but we can turn mail checking back on with this oneshot
+WantedBy=every-offlineimap.service

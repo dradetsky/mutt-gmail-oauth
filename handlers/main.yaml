@@ -1,3 +1,21 @@
+- name: ensure-everything-service-off
+  systemd:
+    unit: every-offlineimap.service
+    state: stopped
+    enabled: no
+    scope: user
+    daemon_reload: yes
+  when: ansible_facts['system'] == 'Linux'
+
+- name: start-enable-offlineimap-target
+  systemd:
+    unit: any-offlineimap.target
+    state: started
+    enabled: yes
+    scope: user
+    daemon_reload: yes
+  when: ansible_facts['system'] == 'Linux'
+
 - name: start-enable-offlineimap-service
   systemd:
     unit: "{{ mgo_systemd_unit_name }}"

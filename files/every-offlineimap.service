@@ -1,0 +1,6 @@
+[Unit]
+Description=Start checking all IMAP mailboxes
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true

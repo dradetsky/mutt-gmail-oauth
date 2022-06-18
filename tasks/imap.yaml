@@ -20,6 +20,22 @@
     src: pythonfile.py
     dest: "{{ mgo_pythonfile }}"
 
+- name: offlineimap user target
+  copy:
+    src: any-offlineimap.target
+    dest: "{{ mgo_systemd_user_dir }}"
+  when: ansible_facts['system'] == 'Linux'
+  notify:
+    - start-enable-offlineimap-target
+
+- name: offlineimap start all oneshot
+  copy:
+    src: every-offlineimap.service
+    dest: "{{ mgo_systemd_user_dir }}"
+  when: ansible_facts['system'] == 'Linux'
+  notify:
+    - ensure-everything-service-off
+
 - name: offlineimap user service
   template:
     src: offlineimap-user.service
