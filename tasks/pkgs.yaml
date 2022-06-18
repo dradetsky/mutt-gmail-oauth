@@ -5,6 +5,8 @@
       # maybe?
       - offlineimap
       - msmtp
+      # in-mutt utils
+      - urlscan
     state: present
   become: yes
 
