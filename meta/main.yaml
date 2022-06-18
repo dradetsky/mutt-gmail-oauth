@@ -2,3 +2,13 @@ dependencies: []
 allow_duplicates: true
 # TODO:
 # galaxy_info:
+
+galaxy_info:
+  author: dmr
+  description: mutt/gmail/oauth/offlineimap/msmtp/etc
+  license: WTFPL
+  galaxy_tags:
+  - gmail
+  - mutt
+  - email
+  - oauth
