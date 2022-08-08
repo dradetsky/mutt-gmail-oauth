@@ -24,7 +24,7 @@ mgo_mailboxes:
   - "+[Gmail].Starred"
   - "+[Gmail].Drafts"
 
-mgo_mailboxes_str: "{{ mgo_mailboxes | map('quote') | join(' ') }}"
+mgo_extra_mailboxes: []
 
 mgo_offlineimap_root: "{{ ansible_user_dir }}/.config/offlineimap"
 mgo_offlineimap_base: "{{ mgo_offlineimap_root }}/conf.d"

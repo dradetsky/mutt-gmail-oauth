@@ -1,0 +1,1 @@
+mgo_mailboxes_str: "{{ mgo_mailboxes | union(mgo_extra_mailboxes) | map('quote') | join(' ') }}"
