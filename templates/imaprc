@@ -27,8 +27,7 @@ type = Gmail
 maxconnections = 3
 remoteuser = {{ mgo_email }}
 realdelete = no
-# TODO: autogen
-folderfilter = lambda f: f in [{{ folderfilter_str }}]
+folderfilter = lambda f: f in [{{ _folderfilter_str }}]
 
 # sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 sslcacertfile = {{ mgo_sslcacertfile }}

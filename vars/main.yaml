@@ -1,1 +1,7 @@
+_mgo_all_mailboxes: "{{ mgo_mailboxes | union(mgo_extra_mailboxes) }}"
+
 mgo_mailboxes_str: "{{ mgo_mailboxes | union(mgo_extra_mailboxes) | map('quote') | join(' ') }}"
+
+_ffs_intermed_0: "{{ _mgo_all_mailboxes | map('regex_replace', '^\\+', '') }}"
+_ffs_intermed_1: "{{ _ffs_intermed_0 | map('regex_replace', '^\\[Gmail\\]\\.', '[Gmail]/') }}"
+_folderfilter_str: "{{ _ffs_intermed_1 | map('to_json') | join(', ') }}"
